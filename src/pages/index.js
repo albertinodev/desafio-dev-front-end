@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Tool from '../components/Tool';
 
@@ -9,6 +10,12 @@ const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css 
 
 const Home = ({ }) => {
   const classes = useStyles();
+  const [searchText, setSearchTex] = useState("");
+
+  // UseEffect to control and use the text for search content
+  useEffect(() => {
+
+  }, [searchText])
 
   return (
     <>
@@ -20,7 +27,7 @@ const Home = ({ }) => {
         <title>Desafio Dev Front-End</title>
       </Head>
       <Box className={classes.home}>
-        <Header/>
+        <Header searchText={searchText} setSearchTex={setSearchTex}/>
         <Tool/>
         <Tool/>
         <Tool/>

@@ -26,6 +26,13 @@ const AddToolModal = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [toolData, setToolData] = useState({
+    toolName: "",
+    toolLink: "",
+    toolDescription: "",
+    toolTags: ""
+  })
+
   return (
     <div>
       <div className={classes.addButtonBox}>
@@ -43,20 +50,31 @@ const AddToolModal = () => {
           <br/><br/>
           <div>
             <span className={classes.spanLabel}>Tool Name</span><br/>
-            <input type='text' placeholder='Tool' className={classes.input} />
+            <input type='text' placeholder='Tool' className={classes.input} 
+              value={toolData.toolName} 
+              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, toolName: target.value }))}
+            />
           </div> 
           <div>
             <span className={classes.spanLabel}>Tool Link</span><br/>
-            <input type='text' placeholder='Tool link' className={classes.input} />
+            <input type='text' placeholder='Tool link' className={classes.input} 
+              value={toolData.toolLink} 
+              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, toolLink: target.value }))}
+            />
           </div>
           <div>
             <span className={classes.spanLabel}>Tool Description</span><br/>
-            <textarea rows={4} placeholder='Tool link' className={classes.textArea} >
-            </textarea>
+            <textarea rows={4} placeholder='Tool link' className={classes.textArea} 
+              value={toolData.toolDescription} 
+              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, toolDescription: target.value }))} 
+            />
           </div>
           <div>
             <span className={classes.spanLabel}>Tags</span><br/>
-            <input type='text' placeholder='Tags' className={classes.input} />
+            <input type='text' placeholder='Tags' className={classes.input} 
+              value={toolData.toolTags} 
+              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, toolTags: target.value }))}
+            />
           </div>
           <Box className={classes.buttonsBar}> 
             <button className={classes.customButton}>

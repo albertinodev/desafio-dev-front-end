@@ -7,9 +7,8 @@ import { cssProperties } from "../css/header"; // Get the css properties
 const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css properties
 
 //Header Component
-const Header = () => {
+const Header = ({ searchText, setSearchTex }) => {
   const classes = useStyles();
-
   return (
     <>
       <h1>VUTTR</h1>
@@ -20,13 +19,13 @@ const Header = () => {
               <span className={classes.searchIcon}>
               <Image src={"/search.png"} alt="Icone de Procuar" width={16} height={16}/>
               </span>
-            <input type='text' placeholder='search' className={classes.searchInput} />
+            <input type='text' placeholder='search' value={searchText} className={classes.searchInput} onChange={({ target }) => setSearchTex (target.value)} />
           </div>
           <div className={classes.checkBox}>
             <input type="checkbox" checked className={classes.checkBoxInput}/> search  in logs only
           </div>
       </div>
-
+      
       <AddTool />
       <br/>
     </>
