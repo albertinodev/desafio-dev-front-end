@@ -1,21 +1,14 @@
-import clsx from 'clsx';
 import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
+import Header from '../components/Header';
+import Tool from '../components/Tool';
 
-import { Visibility } from '@material-ui/icons';
-import React, { useState, useContext, useEffect } from "react";
-import { makeStyles, Card, Grid, CardContent, Typography, Box } from '@material-ui/core';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
-
+import { makeStyles, Box } from '@material-ui/core';
 
 import { cssProperties } from "../css/home"; // Get the css properties
 const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css properties
 
-
 const Home = ({ }) => {
   const classes = useStyles();
-
 
   return (
     <>
@@ -27,7 +20,8 @@ const Home = ({ }) => {
         <title>Desafio Dev Front-End</title>
       </Head>
       <Box className={classes.home}>
-
+        <Header/>
+        <Tool/>
       </Box>
     </>
   )
