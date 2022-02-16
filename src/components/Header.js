@@ -6,6 +6,7 @@ import AddTool from './modals/AddToolModal'
 import { cssProperties } from "../css/header"; // Get the css properties
 const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css properties
 
+//Header Component
 const Header = () => {
   const classes = useStyles();
 

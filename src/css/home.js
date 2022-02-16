@@ -6,7 +6,7 @@ const cssProperties = (theme) => {
             width: "100%",
             maxWidth: 600,
             position: 'absolute',
-            top: '50%',
+            top: '45%',
             left: '50%',
             transform: 'translate(-50%, -50%)'
         }

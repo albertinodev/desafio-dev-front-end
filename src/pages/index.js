@@ -22,6 +22,8 @@ const Home = ({ }) => {
       <Box className={classes.home}>
         <Header/>
         <Tool/>
+        <Tool/>
+        <Tool/>
       </Box>
     </>
   )

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box,  Button, Typography, Modal} from '@material-ui/core';
+import { Box, Modal} from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core';
 
@@ -18,6 +18,7 @@ const style = {
   p: 4
 };
 
+//AddToolModal Component
 const AddToolModal = () => {
   const classes = useStyles();
 

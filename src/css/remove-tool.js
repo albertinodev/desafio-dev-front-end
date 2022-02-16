@@ -19,7 +19,24 @@ const cssProperties = (theme) => {
             position: "relative",
             top: 15,
             left: 180
-        }
+        },
+        toolName: { 
+            display: 'block', float: 'left'
+        },
+        removeTool: { 
+            display: 'block', 
+            float: 'right', 
+            marginBottom: 6,
+            cursor: "pointer"
+        },
+        removeText: {
+            position: "relative",
+            top: -3
+        },
+        xIconRemove: { 
+            fontWeight: 'bolder',
+            fontSize: 14 
+        },
     }
 }
 
