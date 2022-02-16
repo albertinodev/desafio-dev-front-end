@@ -28,8 +28,15 @@ const cssProperties = (theme) => {
         left: 210
       },
       checkBoxInput: {
-        backgroundColor: 'black',
-        color: 'black'
+        position: 'relative',
+        top: -6,
+        height: 26,
+        accentColor: "black"
+      },
+      textCheckBox: {
+        position: 'relative',
+        top: -15,
+        left: 4
       }
     }
   }

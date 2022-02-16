@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css 
 const Home = ({ }) => {
   const classes = useStyles();
   const [searchText, setSearchTex] = useState("");
+  const [checkStatus, setCheckStatus] = useState(false);
 
   // UseEffect to control and use the text for search content
   useEffect(() => {
@@ -27,7 +28,7 @@ const Home = ({ }) => {
         <title>Desafio Dev Front-End</title>
       </Head>
       <Box className={classes.home}>
-        <Header searchText={searchText} setSearchTex={setSearchTex}/>
+        <Header searchText={searchText} setSearchTex={setSearchTex} checkStatus={checkStatus} setCheckStatus={setCheckStatus}/>
         <Tool/>
         <Tool/>
         <Tool/>
