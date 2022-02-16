@@ -1,4 +1,4 @@
-import RemoveModal from './RemoveModal';
+import RemoveModal from './modals/RemoveModal';
 import { makeStyles } from '@material-ui/core';
 
 import { cssProperties } from "../css/tool"; // Get the css properties
