@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: "#eeeeee";  
 }
 
 a {
@@ -13,20 +14,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-/*Custom Tomas CSS for Login, Forgot and ResetPassword components*/
-.MuiTab-wrapper {
-  display: block !important;
-}
-
-div[role="tabpanel"] div {
-  padding-left: 0;
-}
-
-.MuiPaper-root.MuiMenu-paper.MuiPopover-paper {
-  width: 100px !important;
-  border-radius: unset !important;
-  margin-top: 55px !important;
-  box-shadow: none;
 }
