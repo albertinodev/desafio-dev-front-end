@@ -64,7 +64,7 @@ const AddToolModal = () => {
           </div>
           <div>
             <span className={classes.spanLabel}>Tool Description</span><br/>
-            <textarea rows={4} placeholder='Tool link' className={classes.textArea} 
+            <textarea rows={4} placeholder='Tool Description' className={classes.textArea} 
               value={toolData.toolDescription} 
               onChange={({ target }) => setToolData((prevState) => ({ ...prevState, toolDescription: target.value }))} 
             />
