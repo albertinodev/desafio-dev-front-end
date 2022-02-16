@@ -1,7 +1,7 @@
 # desafio-dev-front-end
 
 Aplicação feita em ReactJS usando o Framework NextJS (mais para aproveitar a sua vantagem de server-side render e consequentimente ter um SEO optimizado)<br/>
-Para inicializar a aplicação basta instalar as bibliotecas:
+Para inicializar a aplicação basta instalar as bibliotecas:<br/>
 
 ```
 $ npm install
