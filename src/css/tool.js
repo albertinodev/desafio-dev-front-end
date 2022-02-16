@@ -1,4 +1,4 @@
-const cssProperties = (): any => {
+const cssProperties = (theme) => {
     return {
       toolBox: {
         backgroundColor: 'white',
@@ -32,5 +32,5 @@ const cssProperties = (): any => {
     }
   }
   
-  export default cssProperties
+  module.exports = { cssProperties }
   

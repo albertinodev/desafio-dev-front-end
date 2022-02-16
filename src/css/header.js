@@ -1,4 +1,4 @@
-const cssProperties = (): any => {
+const cssProperties = (theme) => {
     return {
       searchBox: {
         border: '3px solid black',
@@ -48,5 +48,5 @@ const cssProperties = (): any => {
     }
   }
   
-  export default cssProperties
+  module.exports = { cssProperties }
   
