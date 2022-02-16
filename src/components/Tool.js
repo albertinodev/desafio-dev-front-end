@@ -9,7 +9,7 @@ const Tool = () => {
 
   return (
     <div className={classes.toolBox}>
-      <RemoveModal />
+      {/* <RemoveModal /> */}
         <div style={{ marginBottom: 8 }}>
           <div className={classes.toolName}>
             <a href='/'>Notion</a>

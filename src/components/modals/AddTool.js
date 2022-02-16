@@ -3,7 +3,7 @@ import { Box,  Button, Typography, Modal} from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core';
 
-import { cssProperties } from "../../css/remove-tool"; // Get the css properties
+import { cssProperties } from "../../css/add-tool"; // Get the css properties
 const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css properties
 
 const style = {
@@ -27,15 +27,20 @@ const RemoveModal = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <div className={classes.addButtonBox}>
+        <button className={classes.addButton} onClick={handleOpen}> 
+          <span className={classes.plusSign}>+</span>
+          Add
+        </button>
+      </div>
+
       <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <span className={classes.title}>
-            <span className={classes.xIcon}>x</span> Remove Tool
+            <span className={classes.xIcon}>+</span> Add Tool
           </span>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Are You Sure You Want to Remove this Tool?
-          </Typography>
+          
+          <input type='text' placeholder='Tool' className={classes.input} />
 
           <Box className={classes.buttonsBar}>  
             <button className={classes.customButton} style={{ marginRight: 20 }} onClick={() => handleClose() }>

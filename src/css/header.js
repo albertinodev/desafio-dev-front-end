@@ -30,24 +30,7 @@ const cssProperties = (theme) => {
       checkBoxInput: {
         backgroundColor: 'black',
         color: 'black'
-      },
-      addButton: {
-        backgroundColor: '#ffffff',
-        boxShadow: '2px 2px 1px #222',
-        borderRadius: 2,
-        border: '2px solid black'
-      },
-      plusSign: {
-        fontSize: 20,
-        fontWeight: 'bolder',
-        position: 'relative',
-        marginRight: 2,
-        top: 3
-      },
-      addButtonBox: {
-        display: 'block',
-        float: 'right'
-      },
+      }
     }
   }
   

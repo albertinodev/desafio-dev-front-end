@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { makeStyles } from '@material-ui/core';
 
+import AddTool from '../components/modals/AddTool'
+
 import { cssProperties } from "../css/header"; // Get the css properties
 const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css properties
 
@@ -24,12 +26,7 @@ const Header = () => {
           </div>
       </div>
 
-      <div className={classes.addButtonBox}>
-        <button className={classes.addButton}> 
-          <span className={classes.plusSign}>+</span>
-          Add
-        </button>
-      </div>
+      <AddTool />
       <br/>
     </>
   );
