@@ -16,11 +16,21 @@ const cssProperties = (theme) => {
             border: '2px solid black'
         },
         input: {
-            top: -1,
-            position: 'relative',
+            width: 350,
+            height: 30,
             border: 'none',
-            marginLeft: 8,
-            outline: "none"
+            outline: "none",
+            borderRadius: 3,
+            marginBottom: 10,
+            border: "3px solid black"
+        },
+        textArea: {
+            width: 350,
+            border: 'none',
+            outline: "none",
+            borderRadius: 3,
+            marginBottom: 10,
+            border: "3px solid black"
         },
         addButton: {
             backgroundColor: '#ffffff',

@@ -11,14 +11,14 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  maxWidth: 600,
+  maxWidth: 800,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4
 };
 
-const RemoveModal = () => {
+const AddTool = () => {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -37,17 +37,28 @@ const RemoveModal = () => {
       <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <span className={classes.title}>
-            <span className={classes.xIcon}>+</span> Add Tool
+            <span className={classes.xIcon}>+</span> Add New Tool
           </span>
-          
-          <input type='text' placeholder='Tool' className={classes.input} />
+          <br/><br/>
+          <div>
+            Tool Name<br/>
+            <input type='text' placeholder='Tool' className={classes.input} />
+          </div> 
+          <div>
+            Tool Link<br/>
+            <input type='text' placeholder='Tool link' className={classes.input} />
+          </div>
+          <div>
+          <textarea rows={4} placeholder='Tool link' className={classes.textArea} >
+          </textarea>
+          </div>
+          <div>
+          <input type='text' placeholder='Tags' className={classes.input} />
+          </div>
 
-          <Box className={classes.buttonsBar}>  
-            <button className={classes.customButton} style={{ marginRight: 20 }} onClick={() => handleClose() }>
-                Cancel
-            </button>
+          <Box className={classes.buttonsBar}> 
             <button className={classes.customButton}>
-                Yes, Remove
+                Add Tool
             </button>
           </Box>
         </Box>
@@ -56,4 +67,4 @@ const RemoveModal = () => {
   );
 }
 
-export default RemoveModal;
+export default AddTool;
