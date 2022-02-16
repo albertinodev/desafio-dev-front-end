@@ -5,9 +5,20 @@ const cssProperties = (theme) => {
             fontWeight: "bold",
             top: -14
         },
+        spanLabel: {
+            position: "relative",
+            top: -4
+        },
         xIcon: {
             fontSize: 19, 
             fontWeight: "bolder"
+        },
+        buttonsBar: {
+            position: "relative",
+            left: 280,
+            height: 40,
+            marginTop: 15,
+            marginBottom: -20
         },
         customButton: {
             backgroundColor: '#ffffff',

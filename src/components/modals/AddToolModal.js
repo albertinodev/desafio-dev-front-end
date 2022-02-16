@@ -18,7 +18,7 @@ const style = {
   p: 4
 };
 
-const AddTool = () => {
+const AddToolModal = () => {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -41,21 +41,22 @@ const AddTool = () => {
           </span>
           <br/><br/>
           <div>
-            Tool Name<br/>
+            <span className={classes.spanLabel}>Tool Name</span><br/>
             <input type='text' placeholder='Tool' className={classes.input} />
           </div> 
           <div>
-            Tool Link<br/>
+            <span className={classes.spanLabel}>Tool Link</span><br/>
             <input type='text' placeholder='Tool link' className={classes.input} />
           </div>
           <div>
-          <textarea rows={4} placeholder='Tool link' className={classes.textArea} >
-          </textarea>
+            <span className={classes.spanLabel}>Tool Description</span><br/>
+            <textarea rows={4} placeholder='Tool link' className={classes.textArea} >
+            </textarea>
           </div>
           <div>
-          <input type='text' placeholder='Tags' className={classes.input} />
+            <span className={classes.spanLabel}>Tags</span><br/>
+            <input type='text' placeholder='Tags' className={classes.input} />
           </div>
-
           <Box className={classes.buttonsBar}> 
             <button className={classes.customButton}>
                 Add Tool
@@ -67,4 +68,4 @@ const AddTool = () => {
   );
 }
 
-export default AddTool;
+export default AddToolModal;

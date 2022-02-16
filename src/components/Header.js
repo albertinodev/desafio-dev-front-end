@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { makeStyles } from '@material-ui/core';
 
-import AddTool from '../components/modals/AddTool'
+import AddTool from './modals/AddToolModal'
 
 import { cssProperties } from "../css/header"; // Get the css properties
 const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css properties
