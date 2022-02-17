@@ -39,6 +39,7 @@ const Home = ({ dataArray }) => {
     }
   }, [searchText])
 
+  
   // UseEffect to control and che if some tool was delete to update the main list
   useEffect(async () => {
     if (toolListUpdated) {
@@ -63,7 +64,7 @@ const Home = ({ dataArray }) => {
         {
           tools.length === 0 ?
             <></> :
-            tools.map(tool => <Tool tool={tool} setToolListUpdated={setToolListUpdated}/>) 
+            tools.map((tool, index) => <Tool key={"k" + index} tool={tool} setToolListUpdated={setToolListUpdated}/>) 
         }
       </Box>
     </>

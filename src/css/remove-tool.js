@@ -23,9 +23,7 @@ const cssProperties = (theme) => {
         },
         toolName: { 
             display: 'block', 
-            float: 'left',
-            position: "relative",
-            left: 0
+            float: 'left'
         },
         removeTool: { 
             display: 'block', 

@@ -36,18 +36,8 @@ const RemoveModal = ({ tool, setToolListUpdated }) => {
   }
 
   return (
-    <div>
-      <div style={{ marginBottom: 8, marginTop: -4 }}>
-        <div className={classes.toolName}>
-          <Link href={`${tool.link}`}>
-            <a target="_blank">{tool.name}</a>
-          </Link>
-        </div>
-        <div className={classes.removeTool} onClick={handleOpen}>
-          <span className={classes.xIcon}>X</span> <span className={classes.removeText}>remove</span>
-        </div>
-      </div>
-      <br/>
+    <>
+      
       <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <span className={classes.title}>
@@ -69,7 +59,19 @@ const RemoveModal = ({ tool, setToolListUpdated }) => {
           </Box>
         </Box>
       </Modal>
-    </div>
+      <p>
+        <div style={{ marginBottom: 8, marginTop: -4 }}>
+          <div className={classes.toolName}>
+            <Link href={`${tool.link}`}>
+              <a target="_blank">{tool.name}</a>
+            </Link>
+          </div>
+          <div className={classes.removeTool} onClick={handleOpen}>
+            <span className={classes.xIcon}>X</span> <span className={classes.removeText}>remove</span>
+          </div>
+        </div>
+      </p> <br/>
+    </>
   );
 }
 

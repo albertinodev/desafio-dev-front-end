@@ -21,7 +21,7 @@ const Tool = ({ tool, setToolListUpdated }) => {
             tool.tags.map((tag, index) => <span key={"key" + index} className={classes.ashTag}>#{tag + ",  "}</span>):
               <></>
         }
-      </div>
+    </div>
   );
 };
 
