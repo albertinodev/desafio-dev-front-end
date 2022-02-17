@@ -2,22 +2,53 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Tool from '../components/Tool';
+import api from '../services/api'
 
 import { makeStyles, Box } from '@material-ui/core';
+
+import backEndActions from '../actions/back-end/tools';
 
 import { cssProperties } from "../css/home"; // Get the css properties
 const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css properties
 
-const Home = ({ }) => {
+export const getServerSideProps = async (context) => {
+  const dataArray = await backEndActions.getTools();
+
+  return {
+    props: {
+      dataArray
+    } // will be passed to the page component as props
+  }
+}
+
+const Home = ({ dataArray }) => {
   const classes = useStyles();
   const [searchText, setSearchTex] = useState("");
   const [checkStatus, setCheckStatus] = useState(false);
 
-  // UseEffect to control and use the text for search content
-  useEffect(() => {
+  const [tools, setTools] = useState(dataArray ? dataArray : []);
+  const [toolListUpdated, setToolListUpdated] = useState(false);
 
+  // UseEffect to control and use the text for search content
+  useEffect(async () => {
+    if (searchText !== "") {
+      const arrayData = await backEndActions.getTools(searchText);
+      setTools(arrayData ? arrayData : []);
+    } else {
+      const arrayData = await backEndActions.getTools();
+      setTools(arrayData ? arrayData : []);
+    }
   }, [searchText])
 
+  // UseEffect to control and che if some tool was delete to update the main list
+  useEffect(async () => {
+    if (toolListUpdated) {
+      const arrayData = await backEndActions.getTools();
+      setTools(arrayData ? arrayData : []);
+    }
+  }, [toolListUpdated])
+
+  
   return (
     <>
       <Head>
@@ -28,10 +59,12 @@ const Home = ({ }) => {
         <title>Desafio Dev Front-End</title>
       </Head>
       <Box className={classes.home}>
-        <Header searchText={searchText} setSearchTex={setSearchTex} checkStatus={checkStatus} setCheckStatus={setCheckStatus}/>
-        <Tool/>
-        <Tool/>
-        <Tool/>
+        <Header searchText={searchText} setSearchTex={setSearchTex} checkStatus={checkStatus} setCheckStatus={setCheckStatus} setToolListUpdated={setToolListUpdated}/>
+        {
+          tools.length === 0 ?
+            <></> :
+            tools.map(tool => <Tool tool={tool} setToolListUpdated={setToolListUpdated}/>) 
+        }
       </Box>
     </>
   )

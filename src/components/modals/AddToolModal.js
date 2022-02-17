@@ -3,6 +3,8 @@ import { Box, Modal} from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core';
 
+import backEndActions from '../../actions/back-end/tools';
+
 import { cssProperties } from "../../css/add-tool"; // Get the css properties
 const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css properties
 
@@ -19,7 +21,7 @@ const style = {
 };
 
 //AddToolModal Component
-const AddToolModal = () => {
+const AddToolModal = ({ setToolListUpdated }) => {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -27,11 +29,18 @@ const AddToolModal = () => {
   const handleClose = () => setOpen(false);
 
   const [toolData, setToolData] = useState({
-    toolName: "",
-    toolLink: "",
-    toolDescription: "",
-    toolTags: ""
+    name: "",
+    link: "",
+    description: "",
+    tags: []
   })
+
+
+  const handleAddTool = async () => {
+    const response = await backEndActions.addTool(toolData);
+    setToolListUpdated(true); // Says thad tool list was updated on the server
+    handleClose();
+  } 
 
   return (
     <div>
@@ -51,33 +60,50 @@ const AddToolModal = () => {
           <div>
             <span className={classes.spanLabel}>Tool Name</span><br/>
             <input type='text' placeholder='Tool' className={classes.input} 
-              value={toolData.toolName} 
-              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, toolName: target.value }))}
+              value={toolData.name} 
+              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, name: target.value }))}
             />
           </div> 
           <div>
             <span className={classes.spanLabel}>Tool Link</span><br/>
             <input type='text' placeholder='Tool link' className={classes.input} 
-              value={toolData.toolLink} 
-              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, toolLink: target.value }))}
+              value={toolData.link} 
+              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, link: target.value }))}
             />
           </div>
           <div>
             <span className={classes.spanLabel}>Tool Description</span><br/>
             <textarea rows={4} placeholder='Tool Description' className={classes.textArea} 
-              value={toolData.toolDescription} 
-              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, toolDescription: target.value }))} 
+              value={toolData.description} 
+              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, description: target.value }))} 
             />
           </div>
           <div>
             <span className={classes.spanLabel}>Tags</span><br/>
             <input type='text' placeholder='Tags' className={classes.input} 
-              value={toolData.toolTags} 
-              onChange={({ target }) => setToolData((prevState) => ({ ...prevState, toolTags: target.value }))}
+              value={
+                toolData.tags.join('')
+              } 
+              onChange={({ target }) => {
+
+                //console.log(toolData.tags.join(''));
+
+                const tagsWrited = target.value;
+                if (tagsWrited && tagsWrited.length > 0) {
+                  const finalList = tagsWrited.split(" ");
+                  const finalTags = [];
+  
+                  finalList.map(someTag => {
+                    finalTags.push(someTag)
+                  })
+  
+                  setToolData((prevState) => ({ ...prevState, tags: finalTags }))
+                }
+              }}
             />
           </div>
           <Box className={classes.buttonsBar}> 
-            <button className={classes.customButton}>
+            <button className={classes.customButton} onClick={() => handleAddTool()}>
                 Add Tool
             </button>
           </Box>

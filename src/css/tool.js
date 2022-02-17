@@ -14,7 +14,7 @@ const cssProperties = (theme) => {
         marginRight: 10
       },
       ashTag: { 
-        fontWeight: "bolder" 
+        fontWeight: "bold" 
       }
     }
   }

@@ -7,7 +7,7 @@ import { cssProperties } from "../css/header"; // Get the css properties
 const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css properties
 
 //Header Component
-const Header = ({ searchText, setSearchTex, checkStatus, setCheckStatus }) => {
+const Header = ({ searchText, setSearchTex, checkStatus, setCheckStatus, setToolListUpdated }) => {
   const classes = useStyles();
   return (
     <>
@@ -32,7 +32,7 @@ const Header = ({ searchText, setSearchTex, checkStatus, setCheckStatus }) => {
           </div>
       </div>
       
-      <AddTool />
+      <AddTool setToolListUpdated={setToolListUpdated}/>
       <br/>
     </>
   );

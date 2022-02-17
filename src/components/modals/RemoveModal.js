@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Box,  Button, Typography, Modal} from '@material-ui/core';
 
+import backEndActions from '../../actions/back-end/tools';
+
 import { makeStyles } from '@material-ui/core';
 
 import { cssProperties } from "../../css/remove-tool"; // Get the css properties
@@ -19,18 +21,24 @@ const style = {
 };
 
 //Remove Tool Component
-const RemoveModal = () => {
+const RemoveModal = ({ tool, setToolListUpdated }) => {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const handleDelete = async () => {
+    const response = await backEndActions.deleteTool(tool.id);
+    setToolListUpdated(true); // Says to main component that some tool was deleted
+    handleClose() // Close Modal
+  }
+
   return (
     <div>
       <div style={{ marginBottom: 8, marginTop: -4 }}>
         <div className={classes.toolName}>
-          <a href='/'>Notion</a>
+          <a href={tool.link}>Notion</a>
         </div>
         <div className={classes.removeTool} onClick={handleOpen}>
           <span className={classes.xIcon}>X</span> <span className={classes.removeText}>remove</span>
@@ -50,7 +58,9 @@ const RemoveModal = () => {
             <button className={classes.customButton} style={{ marginRight: 20 }} onClick={() => handleClose() }>
                 Cancel
             </button>
-            <button className={classes.customButton}>
+            <button className={classes.customButton} onClick={ async () => {
+              await handleDelete()
+            }}>
                 Yes, Remove
             </button>
           </Box>

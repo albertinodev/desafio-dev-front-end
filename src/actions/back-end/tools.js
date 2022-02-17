@@ -1,18 +1,8 @@
 import { api } from "../../services/api";
 
-const rollBackReward = async (rewardId) => {
+const getTools = async (tag) => {
     try {
-        const response = await api.put("/transaction-history/rollback/reward/" + rewardId);
-        return response.data;
-    } catch (err) {
-        console.log(err);
-        return null;
-    }
-}
-
-const rollBackPurchase = async (purchaseId) => {
-    try {
-        const response = await api.put("/transaction-history/rollback/purchase/" + purchaseId);
+        const response = await api.get(tag ? `/tools?tag=${tag}` : "/tools");
         return response.data;
     } catch (err) {
         console.log(err);
@@ -21,34 +11,25 @@ const rollBackPurchase = async (purchaseId) => {
 }
 
 
-const getActivity = async (companyId, offset = 13, page = 1, initialDate = "", finalDate = "", filter = "") => {
+const addTool = async (tool) => {
     try {
-        const response = await api.get("/transaction-history/company-activities/" + companyId + "?offset=" + offset + "&page=" + page + "&initialDate=" + initialDate + "&finalDate=" + finalDate + "&filter=" + filter);
+        const response = await api.post("/tools", tool);
         return response.data;
     } catch (err) {
-        console.log("Error: ", err);
+        console.log(err);
         return null;
     }
 }
 
-const getFilteredActivity = async (companyId, storeId, initialDate, finalDate, offset = 13, page = 1) => {
+
+const deleteTool = async (id) => {
     try {
-        const response = await api.get("/transaction-history/company-activities/" + companyId+ "?store=" + storeId + "&initialDate=" + initialDate + "&finalDate=" + finalDate + "&offset=" + offset + "&page=" + page);
+        const response = await api.delete("/tools/" + id);
         return response.data;
     } catch (err) {
-        console.log("Error: ", err);
+        console.log(err);
         return null;
     }
 }
 
-const getSomeTotals = async (companyId) => {
-    try {
-        const response = await api.get("/analytics/company/activities/" + companyId);
-        return response.data;
-    } catch (err) {
-        console.log("Error: ", err);
-        return null;
-    }
-}
-
-module.exports = { rollBackReward, rollBackPurchase, getActivity, getSomeTotals, getFilteredActivity };
+module.exports = { getTools, addTool, deleteTool };

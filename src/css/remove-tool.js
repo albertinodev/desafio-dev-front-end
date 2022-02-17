@@ -13,7 +13,8 @@ const cssProperties = (theme) => {
             backgroundColor: '#ffffff',
             boxShadow: '2px 2px 1px #222',
             borderRadius: 2,
-            border: '2px solid black'
+            border: '2px solid black',
+            cursor: "pointer"
         },
         buttonsBar: {
             position: "relative",
