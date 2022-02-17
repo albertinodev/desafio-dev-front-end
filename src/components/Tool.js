@@ -18,7 +18,7 @@ const Tool = ({ tool, setToolListUpdated }) => {
         </div>
         {
           tool.tags.length > 0 ?
-            tool.tags.map(tag => <span className={classes.ashTag}>#{tag + ",  "}</span>):
+            tool.tags.map((tag, index) => <span key={"key" + index} className={classes.ashTag}>#{tag + ",  "}</span>):
               <></>
         }
       </div>
