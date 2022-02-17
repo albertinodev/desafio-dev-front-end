@@ -44,6 +44,7 @@ const Home = ({ dataArray }) => {
     if (toolListUpdated) {
       const arrayData = await backEndActions.getTools();
       setTools(arrayData ? arrayData : []);
+      setToolListUpdated(false) // Reseting de list update
     }
   }, [toolListUpdated])
 

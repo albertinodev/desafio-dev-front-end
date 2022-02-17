@@ -31,8 +31,8 @@ const RemoveModal = ({ tool, setToolListUpdated }) => {
 
   const handleDelete = async () => {
     const response = await backEndActions.deleteTool(tool.id);
-    setToolListUpdated(true); // Says to main component that some tool was deleted
     handleClose() // Close Modal
+    setToolListUpdated(true); // Says to main component that some tool was deleted
   }
 
   return (
