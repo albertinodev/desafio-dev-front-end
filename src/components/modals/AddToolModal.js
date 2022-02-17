@@ -40,6 +40,13 @@ const AddToolModal = ({ setToolListUpdated }) => {
     const response = await backEndActions.addTool(toolData);
     setToolListUpdated(true); // Says thad tool list was updated on the server
     handleClose();
+
+    setToolData({
+      name: "",
+      link: "",
+      description: "",
+      tags: []
+    })
   } 
 
   return (

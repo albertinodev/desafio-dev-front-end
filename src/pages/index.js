@@ -23,7 +23,7 @@ export const getServerSideProps = async (context) => {
 const Home = ({ dataArray }) => {
   const classes = useStyles();
   const [searchText, setSearchTex] = useState("");
-  const [checkStatus, setCheckStatus] = useState(false);
+  const [checkStatus, setCheckStatus] = useState(true);
 
   const [tools, setTools] = useState(dataArray ? dataArray : []);
   const [toolListUpdated, setToolListUpdated] = useState(false);
@@ -57,7 +57,7 @@ const Home = ({ dataArray }) => {
         <meta name="keywords" content="React, TecnoPlus, Desafio, Tecnologia de Front-End"/>
         <title>Desafio Dev Front-End</title>
       </Head>
-      <Box className={classes.home}>
+      <Box className={classes.home} style={{ padding: 0 }}>
         <Header searchText={searchText} setSearchTex={setSearchTex} checkStatus={checkStatus} setCheckStatus={setCheckStatus} setToolListUpdated={setToolListUpdated}/>
         {
           tools.length === 0 ?
