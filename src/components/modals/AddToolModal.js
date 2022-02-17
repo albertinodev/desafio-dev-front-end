@@ -82,12 +82,9 @@ const AddToolModal = ({ setToolListUpdated }) => {
             <span className={classes.spanLabel}>Tags</span><br/>
             <input type='text' placeholder='Tags' className={classes.input} 
               value={
-                toolData.tags.join('')
+                toolData.tags.join(' ')
               } 
               onChange={({ target }) => {
-
-                //console.log(toolData.tags.join(''));
-
                 const tagsWrited = target.value;
                 if (tagsWrited && tagsWrited.length > 0) {
                   const finalList = tagsWrited.split(" ");

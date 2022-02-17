@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => (cssProperties(theme))); // Set the css 
 
 export const getServerSideProps = async (context) => {
   const dataArray = await backEndActions.getTools();
-
   return {
     props: {
       dataArray

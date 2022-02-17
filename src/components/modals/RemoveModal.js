@@ -38,7 +38,7 @@ const RemoveModal = ({ tool, setToolListUpdated }) => {
     <div>
       <div style={{ marginBottom: 8, marginTop: -4 }}>
         <div className={classes.toolName}>
-          <a href={tool.link}>Notion</a>
+          <a href={tool.link}>{tool.name}</a>
         </div>
         <div className={classes.removeTool} onClick={handleOpen}>
           <span className={classes.xIcon}>X</span> <span className={classes.removeText}>remove</span>
