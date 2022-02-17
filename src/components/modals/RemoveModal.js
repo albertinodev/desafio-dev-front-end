@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box,  Button, Typography, Modal} from '@material-ui/core';
+import Link from 'next/link';
 
 import backEndActions from '../../actions/back-end/tools';
 
@@ -38,7 +39,9 @@ const RemoveModal = ({ tool, setToolListUpdated }) => {
     <div>
       <div style={{ marginBottom: 8, marginTop: -4 }}>
         <div className={classes.toolName}>
-          <a href={tool.link}>{tool.name}</a>
+          <Link href={`${tool.link}`}>
+            <a target="_blank">{tool.name}</a>
+          </Link>
         </div>
         <div className={classes.removeTool} onClick={handleOpen}>
           <span className={classes.xIcon}>X</span> <span className={classes.removeText}>remove</span>
